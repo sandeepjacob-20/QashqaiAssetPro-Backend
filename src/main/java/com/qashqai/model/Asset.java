@@ -19,29 +19,12 @@ public class Asset {
 	private String assetType;
 	
 	@Column(name="isTaken")
-	private Integer isTaken;
+	private boolean isTaken = true;
 	
-	
-
-	
-
 	public Asset() {
 		
 	}
-
 	
-	
-	
-	public Asset(Integer assetId, String assetType, Integer isTaken) {
-		super();
-		this.assetId = assetId;
-		this.assetType = assetType;
-		this.isTaken = isTaken;
-	}
-
-
-
-
 	public Integer getAssetId() {
 		return assetId;
 	}
@@ -51,11 +34,11 @@ public class Asset {
 	}
 
 	
-	public Integer getIsTaken() {
+	public boolean getIsTaken() {
 		return isTaken;
 	}
 
-	public void setIsTaken(Integer isTaken) {
+	public void setIsTaken(boolean isTaken) {
 		this.isTaken = isTaken;
 	}
 	public String getAssetType() {
@@ -71,6 +54,4 @@ public class Asset {
 		return "Asset [assetId=" + assetId + ", assetType=" + assetType + "]";
 	}
 
-
-	
 }

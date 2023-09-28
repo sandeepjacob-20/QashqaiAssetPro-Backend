@@ -19,7 +19,7 @@ public interface IAssetRepository  extends CrudRepository<Asset, Integer> {
 		
 		//to deactivate employees
 				@Modifying
-				@Query("UPDATE com.qashqai.model.Asset SET isActive=0 WHERE id=?1")
+				@Query("UPDATE com.qashqai.model.Asset SET isActive=1 WHERE id=?1")
 				public void deactivateAsset(int id);
 
 }

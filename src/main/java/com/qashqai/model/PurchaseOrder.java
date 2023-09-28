@@ -23,7 +23,7 @@ public class PurchaseOrder {
 	private Integer pdId;
 
 	@Column(name = "pdOrder ", nullable = false, length = 60)
-	private String pdOrder;
+	private Integer pdOrder;
 	
 	@Column(name = "pdQty ")
 	private Integer pdQty;
@@ -52,24 +52,8 @@ public class PurchaseOrder {
 	@JoinColumn(name="assetId",insertable=false,updatable=false)
 	private Asset asset;
 	
-	public PurchaseOrder(Integer pdId, String pdOrder, Integer pdQty, LocalDate pdDate, LocalDate pdDdate,
-			String pdStatus, boolean isTaken, Integer pdVendor, Vendors vendor, Integer pdType, Asset asset) {
-		super();
-		this.pdId = pdId;
-		this.pdOrder = pdOrder;
-		this.pdQty = pdQty;
-		this.pdDate = pdDate;
-		this.pdDdate = pdDdate;
-		this.pdStatus = pdStatus;
-		this.isTaken = isTaken;
-		this.pdVendor = pdVendor;
-		this.vendor = vendor;
-		this.pdType = pdType;
-		this.asset = asset;
-	}
 	public PurchaseOrder() {
-		super();
-		// TODO Auto-generated constructor stub
+	
 	}
 	public Integer getPdId() {
 		return pdId;
@@ -77,10 +61,10 @@ public class PurchaseOrder {
 	public void setPdId(Integer pdId) {
 		this.pdId = pdId;
 	}
-	public String getPdOrder() {
+	public int getPdOrder() {
 		return pdOrder;
 	}
-	public void setPdOrder(String pdOrder) {
+	public void setPdOrder(int pdOrder) {
 		this.pdOrder = pdOrder;
 	}
 	public Integer getPdQty() {

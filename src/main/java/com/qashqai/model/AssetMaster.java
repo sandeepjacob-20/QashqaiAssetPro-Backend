@@ -23,11 +23,11 @@ public class AssetMaster {
 	private Integer id;
 
 	// mapping
-	private Integer pdId;
+	private Integer vendorId;
 
 	@OneToOne
-	@JoinColumn(name = "pdId", insertable = false, updatable = false)
-	private PurchaseOrder purchaseorder;
+	@JoinColumn(name = "vendorId", insertable = false, updatable = false)
+	private Vendors vendor;
 
 	private String assetMake;
 
@@ -60,11 +60,11 @@ public class AssetMaster {
 	private boolean isTaken = true;
 
 	// record creation date
-	@Column(name = "dateCreated")
-	private LocalDate dateCreated;
+	@Column(name = "dateCreated", nullable = true)
+	private LocalDate dateCreated = LocalDate.now();
 
 	// record modification date
-	@Column(name = "dateModified")
-	private LocalDate dateModified;
+	@Column(name = "dateModified", nullable = true)
+	private LocalDate dateModified = LocalDate.now();;
 
 }
