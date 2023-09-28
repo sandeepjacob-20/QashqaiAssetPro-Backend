@@ -46,8 +46,7 @@ public class Vendors {
 	// checking status of vendor
 	private boolean isActive = true;
 	
-	//mapping
-	private Integer assetId;
+	
 	
 	@ManyToMany
 	@JoinColumn(name = "assetId", insertable = false, updatable = false)
