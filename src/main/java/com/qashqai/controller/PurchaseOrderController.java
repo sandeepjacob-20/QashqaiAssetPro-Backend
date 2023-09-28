@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.PurchaseOrder;
 import com.qashqai.service.IPurchaseService;
+
 @CrossOrigin
-@RestController// @Controller+@Configuration
+@RestController // @Controller+@Configuration
 @RequestMapping("/api")
 public class PurchaseOrderController {
 	@Autowired
