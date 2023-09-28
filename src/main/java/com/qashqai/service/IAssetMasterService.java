@@ -1,6 +1,7 @@
 package com.qashqai.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.qashqai.model.AssetMaster;
 
@@ -12,6 +13,9 @@ public interface IAssetMasterService {
 	public AssetMaster addAsset(AssetMaster asset);
 	
 	//search by id
-	public AssetMaster searchAsset(int assetmasterid);
+	public Optional<AssetMaster> searchAsset(int assetmasterid);
+	
+	//deactivate assets
+	public void disableAssets(int assetmasterid);
 	
 }
