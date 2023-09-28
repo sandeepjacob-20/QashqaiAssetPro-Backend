@@ -143,8 +143,5 @@ public class PurchaseOrder {
 				+ ", pdDdate=" + pdDdate + ", pdStatus=" + pdStatus + ", isTaken=" + isTaken + ", pdVendor=" + pdVendor
 				+ ", vendor=" + vendor + ", pdType=" + pdType + ", asset=" + asset + "]";
 	}
-	
-	
-	
-	
+		
 }
