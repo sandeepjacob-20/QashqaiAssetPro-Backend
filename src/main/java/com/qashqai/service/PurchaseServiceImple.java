@@ -1,4 +1,4 @@
-/*package com.qashqai.service;
+package com.qashqai.service;
 
 import java.util.List;
 
@@ -23,4 +23,4 @@ public class PurchaseServiceImple implements IPurchaseService {
 		return purchaseRepo.save(order);
 	}
 
-}*/
+}
