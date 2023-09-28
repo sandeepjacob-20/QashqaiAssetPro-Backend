@@ -71,7 +71,6 @@ public class Asset {
 		return "Asset [assetId=" + assetId + ", assetType=" + assetType + "]";
 	}
 
-	
-	
+
 	
 }

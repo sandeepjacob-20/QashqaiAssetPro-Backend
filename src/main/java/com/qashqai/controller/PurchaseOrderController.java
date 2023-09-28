@@ -14,28 +14,43 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.PurchaseOrder;
+import com.qashqai.service.IPurchaseService;
 @CrossOrigin
 @RestController// @Controller+@Configuration
 @RequestMapping("/api")
 public class PurchaseOrderController {
-	
+	@Autowired
+	private IPurchaseService purchaseService;
 	@Autowired
 	private APIResponse apiresponse;
 	
+	//add
 	@GetMapping("/orders/get")
-	
 	public List<PurchaseOrder> getOrders()
 	{
-		return null;
-		
+		return purchaseService.getAll();
 	}
+	//insert new order
 	@PostMapping("/orders/push")
 	public ResponseEntity<APIResponse> addOrder (@RequestBody PurchaseOrder purchaseOrder){
-		return null;
+		if(purchaseService.saveOrder(purchaseOrder)==null)
+		{	apiresponse.setData("name can have only alphabet!");
+			apiresponse.setStatus(500);
+			apiresponse.setError("invalid name");
+		
+			return ResponseEntity
+					.status(apiresponse.getStatus()).body(apiresponse);
+			
+		}apiresponse.setData("employee added successfuly");
+		apiresponse.setStatus(200);
+		return ResponseEntity
+				.status(apiresponse.getStatus()).body(apiresponse);
+		
 		
 	}
+	//edit the order
 	@PutMapping("orders/edit")
 	public void updateOrders(@RequestBody PurchaseOrder purchaseOrder) {
-			
+		purchaseService.saveOrder(purchaseOrder);
 	}
 }*/
