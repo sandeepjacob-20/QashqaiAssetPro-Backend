@@ -18,47 +18,47 @@ import com.qashqai.model.AssetDefinition;
 import com.qashqai.service.IAssetService;
 
 @CrossOrigin
-@RestController //@Controller+@Configuration
+@RestController // @Controller+@Configuration
 @RequestMapping("/api")
 public class AssetController {
 	@Autowired
 	private IAssetService assetService;
-	
+
 	@Autowired
 	private APIResponse apiResponse;
-	    //list
-		@GetMapping("/asset")
-		public List<Asset> getAsset(){
-			return assetService.getAsset(); 
+
+	// list
+	@GetMapping("/asset")
+	public List<Asset> getAsset() {
+		return assetService.getAsset();
+	}
+
+	@PostMapping("/asset")
+	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody Asset asset) {
+		if (assetService.saveAsset(asset) == null) {
+			apiResponse.setData("Name can have only alphabets!!");
+			apiResponse.setStatus(500);
+			apiResponse.setError("Invalid Name");
+
+			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 		}
-		
-		
-		@PostMapping("/asset")
-		public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody Asset asset){
-			if(assetService.saveAsset(asset)==null) {
-					apiResponse.setData("Name can have only alphabets!!");
-					apiResponse.setStatus(500);
-					apiResponse.setError("Invalid Name");
-					
-					return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-			}
-			apiResponse.setData("Assets added successfully");
-			apiResponse.setStatus(200);
-			
-			return ResponseEntity
-					.status(apiResponse.getStatus()).body(apiResponse);
-			
-		}
-		//search by id
-		@GetMapping("/asset/{id}")
-		public Asset getAssetById(@PathVariable int id) {
-			return assetService.getAssetById(id);
-		}
-		
-		//deactivate
-		//to deactivate isActive
-				@GetMapping("/asset/deactivate/{id}")
-				public void deactivate(@PathVariable int id) {
-					assetService.deactivateAsset(id);
-				}
+		apiResponse.setData("Assets added successfully");
+		apiResponse.setStatus(200);
+
+		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
+
+	}
+
+	// search by id
+	@GetMapping("/asset/{id}")
+	public Asset getAssetById(@PathVariable int id) {
+		return assetService.getAssetById(id);
+	}
+
+	// deactivate
+	// to deactivate isActive
+	@GetMapping("/asset/deactivate/{id}")
+	public void deactivate(@PathVariable int id) {
+		assetService.deactivateAsset(id);
+	}
 }
