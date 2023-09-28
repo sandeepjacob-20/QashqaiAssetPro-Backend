@@ -1,5 +1,5 @@
 
-package com.qashqai.model;
+/*package com.qashqai.model;
 
 import java.time.LocalDate;
 
@@ -61,4 +61,4 @@ public class Vendors {
 	@Column(name = "dteDeletedAt")
 	private LocalDate dteDeletedAt;
 
-}
+}*/

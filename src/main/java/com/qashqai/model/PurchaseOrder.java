@@ -1,6 +1,6 @@
 package com.qashqai.model;
 
-import java.time.LocalDate;
+/*import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -147,4 +147,4 @@ public class PurchaseOrder {
 	
 	
 	
-}
+}*/

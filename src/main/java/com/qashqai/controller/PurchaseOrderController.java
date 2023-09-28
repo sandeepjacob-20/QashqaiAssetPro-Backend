@@ -1,4 +1,4 @@
-package com.qashqai.controller;
+/*package com.qashqai.controller;
 
 import java.util.List;
 
@@ -38,4 +38,4 @@ public class PurchaseOrderController {
 	public void updateOrders(@RequestBody PurchaseOrder purchaseOrder) {
 			
 	}
-}
+}*/
