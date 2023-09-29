@@ -33,13 +33,13 @@ public class VendorController {
 	private APIResponse apiResponse;
 	
 	//list vendors
-	@GetMapping("/vendor")
+	@GetMapping("/vendors")
 	public List<Vendors> getEmployee() {
 		return vendorService.getVendor();
 	}
 	
 	//add vendors
-	@PostMapping("/vendor")
+	@PostMapping("/vendors")
 	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendors vendor){
 		vendorService.saveVendor(vendor);
 		
@@ -51,7 +51,7 @@ public class VendorController {
 		
 	}
 	//edit vendor
-	@PutMapping("/vendor")
+	@PutMapping("/vendors")
 	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor){
 		System.out.println(vendor);
 		vendorService.saveVendor(vendor);
@@ -65,14 +65,14 @@ public class VendorController {
 	}
 	
 	//search vendors
-	@GetMapping("/vendor/{id}")
+	@GetMapping("/vendors/{id}")
 	public Vendors getVendor(@PathVariable int id) {
 		return vendorService.getVendor(id);
 	}
 	
 	//disable vendor
 	public ResponseEntity<APIResponse>  disableVendor(int id) {
-	   
+
 		vendorService.disableVendor(id);
 		apiResponse.setData("VENDOR ADDED SUCCESFULLY");
 		apiResponse.setStatus(200);
