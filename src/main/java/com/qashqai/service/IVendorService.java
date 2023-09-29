@@ -10,4 +10,10 @@ public interface IVendorService {
 		public List<Vendors>getVendor();
 		//insert
 		public Vendors saveVendor(Vendors employee);
+		//search
+		public Vendors getVendor(int id);
+		//disable
+		public void disableVendor(int id);
+		
+
 }
