@@ -38,8 +38,6 @@ public class PurchaseOrder {
 	private String pdStatus;
 	
 	private boolean isTaken=true;
-	
-	
 	//mapping
 	
 	private Integer pdVendor;
