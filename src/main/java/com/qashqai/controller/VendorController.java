@@ -71,9 +71,10 @@ public class VendorController {
 	}
 	
 	//disable vendor
-	public ResponseEntity<APIResponse>  disableVendor(int id) {	
+	@GetMapping("/vendors/disable/{id}")
+	public ResponseEntity<APIResponse>  disableVendor(@PathVariable int id) {	
 		vendorService.disableVendor(id);
-		apiResponse.setData("VENDOR ADDED SUCCESFULLY");
+		apiResponse.setData("VENDOR DISABLED SUCCESFULLY");
 		apiResponse.setStatus(200);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	
