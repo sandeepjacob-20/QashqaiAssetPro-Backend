@@ -1,4 +1,4 @@
-/*package com.qashqai.service;
+package com.qashqai.service;
 
 import java.util.List;
 import com.qashqai.model.PurchaseOrder;
@@ -10,4 +10,4 @@ public interface IPurchaseService {
 	//To add new orders
 	public PurchaseOrder saveOrder(PurchaseOrder order);
 	
-}*/
+}
