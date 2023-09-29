@@ -45,7 +45,7 @@ public class PurchaseOrder {
 	private Integer pdVendor;
 	@ManyToOne
 	@JoinColumn(name="vendorId",insertable=false,updatable=false)
-	private Vendors vendor;
+	private Vendor vendor;
 	
 	private Integer pdType;
 	@ManyToOne
@@ -53,7 +53,7 @@ public class PurchaseOrder {
 	private Asset asset;
 	
 	public PurchaseOrder(Integer pdId, String pdOrder, Integer pdQty, LocalDate pdDate, LocalDate pdDdate,
-			String pdStatus, boolean isTaken, Integer pdVendor, Vendors vendor, Integer pdType, Asset asset) {
+			String pdStatus, boolean isTaken, Integer pdVendor, Vendor vendor, Integer pdType, Asset asset) {
 		super();
 		this.pdId = pdId;
 		this.pdOrder = pdOrder;
@@ -119,10 +119,10 @@ public class PurchaseOrder {
 	public void setPdVendor(Integer pdVendor) {
 		this.pdVendor = pdVendor;
 	}
-	public Vendors getVendor() {
+	public Vendor getVendor() {
 		return vendor;
 	}
-	public void setVendor(Vendors vendor) {
+	public void setVendor(Vendor vendor) {
 		this.vendor = vendor;
 	}
 	public Integer getPdType() {
