@@ -1,12 +1,12 @@
 package com.qashqai.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qashqai.model.Asset;
-import com.qashqai.model.AssetDefinition;
 import com.qashqai.repository.IAssetRepository;
 @Service
 public class AssetService implements IAssetService {
@@ -33,8 +33,8 @@ public class AssetService implements IAssetService {
 	}
 
 	@Override
-	public Asset getAssetById(int id) {
-		return  (Asset) assetRepo.findById(id);
+	public List<Asset> getAssetById(int id) {
+		return (List<Asset>) assetRepo.findById(id);
 	}
 	
 			

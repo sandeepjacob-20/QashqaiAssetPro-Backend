@@ -1,4 +1,4 @@
-package com.qashqai.model;
+/*package com.qashqai.model;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -67,4 +67,4 @@ public class AssetMaster {
 	@Column(name = "dateModified", nullable = true)
 	private LocalDate dateModified = LocalDate.now();;
 
-}
+}*/

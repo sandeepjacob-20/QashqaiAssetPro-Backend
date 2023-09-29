@@ -1,4 +1,4 @@
-package com.qashqai.controller;
+/*package com.qashqai.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -58,4 +58,4 @@ public class AssetMasterController {
 	public void disableAssets(@PathVariable int id) {
 		assetMasterService.disableAssets(id);
 	}
-}
+}*/

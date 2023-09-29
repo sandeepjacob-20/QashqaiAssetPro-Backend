@@ -13,28 +13,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qashqai.common.APIResponse;
-import com.qashqai.model.Asset;
-import com.qashqai.service.IAssetService;
+import com.qashqai.model.AssetDefinition;
+import com.qashqai.service.IAssetDefinitionService;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
 @RequestMapping("/api")
-public class AssetController {
+public class AssetDefinitionController {
 	@Autowired
-	private IAssetService assetService;
+	private IAssetDefinitionService assetDefinitionService;
 
 	@Autowired
 	private APIResponse apiResponse;
 
 	// list
-	@GetMapping("/asset")
-	public List<Asset> getAsset() {
-		return assetService.getAsset();
+	@GetMapping("/assetdefinition")
+	public List<AssetDefinition> getAssetDefinition() {
+		return assetDefinitionService.getAssetDefinition();
 	}
 
-	@PostMapping("/asset")
-	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody Asset asset) {
-		if (assetService.saveAsset(asset) == null) {
+	@PostMapping("/assetdefinition")
+	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody AssetDefinition assetDefinition) {
+		if (assetDefinitionService.saveAssetDefinition(assetDefinition) == null) {
 			apiResponse.setData("Name can have only alphabets!!");
 			apiResponse.setStatus(500);
 			apiResponse.setError("Invalid Name");
@@ -49,15 +49,16 @@ public class AssetController {
 	}
 
 	// search by id
-	@GetMapping("/asset/{id}")
-	public List<Asset> getAssetById(@PathVariable int id) {
-		return (List<Asset>) assetService.getAssetById(id);
+	@GetMapping("/assetdefinition/{id}")
+	public AssetDefinition getAssetDefinitionById(@PathVariable int id) {
+		return (AssetDefinition) assetDefinitionService.getAssetDefinitionById(id);
 	}
 
 	// deactivate
 	// to deactivate isActive
-	@GetMapping("/asset/deactivate/{id}")
-	public void deactivate(@PathVariable int id) {
-		assetService.deactivateAsset(id);
+	@GetMapping("/assetdefinition/deactivate/{id}")
+	public void deactivateAssetDefintion(@PathVariable int id) {
+		assetDefinitionService.deactivateAssetDefinition(id);
 	}
 }
+

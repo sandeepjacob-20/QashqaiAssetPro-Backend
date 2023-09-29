@@ -1,4 +1,4 @@
-package com.qashqai.service;
+/*package com.qashqai.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,4 +41,4 @@ public class AssetMasterService implements IAssetMasterService {
 
 	}
 
-}
+}*/

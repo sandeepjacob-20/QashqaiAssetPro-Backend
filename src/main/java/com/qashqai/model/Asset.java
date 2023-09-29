@@ -18,8 +18,10 @@ public class Asset {
 	@Column(name="assetType", nullable=false, length=60)
 	private String assetType;
 	
-	@Column(name="isTaken")
-	private boolean isTaken = true;
+	@Column(name="isActive")
+	private boolean isActive;
+	
+	
 	
 	public Asset() {
 		
@@ -34,13 +36,7 @@ public class Asset {
 	}
 
 	
-	public boolean getIsTaken() {
-		return isTaken;
-	}
-
-	public void setIsTaken(boolean isTaken) {
-		this.isTaken = isTaken;
-	}
+	
 	public String getAssetType() {
 		return assetType;
 	}
@@ -49,9 +45,19 @@ public class Asset {
 		this.assetType = assetType;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	@Override
 	public String toString() {
-		return "Asset [assetId=" + assetId + ", assetType=" + assetType + "]";
+		return "Asset [assetId=" + assetId + ", assetType=" + assetType + ", isActive=" + isActive + "]";
 	}
+
+	
 
 }
