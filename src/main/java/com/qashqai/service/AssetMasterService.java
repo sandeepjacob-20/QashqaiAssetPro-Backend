@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.qashqai.model.AssetMaster;
 import com.qashqai.repository.IAssetMasterRepository;
@@ -34,6 +35,7 @@ public class AssetMasterService implements IAssetMasterService {
 		return assetMasterRepo.findById(assetmasterid);
 	}
 
+	@Transactional
 	@Override
 	public void disableAssets(int assetmasterid) {
 		// TODO Auto-generated method stub

@@ -5,11 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.qashqai.model.AssetMaster;
+import com.qashqai.model.Vendors;
 
 @Repository
-public interface IAssetMasterRepository extends CrudRepository<AssetMaster, Integer>{
+public interface IVendorRepository extends CrudRepository<Vendors,Integer>{
 	@Modifying
-	@Query("UPDATE com.qashqai.model.AssetMaster SET is_taken = 0 WHERE assetmasterid=?1")
-	public void disableAssets(int assetmasterid);
+	@Query("UPDATE com.qashqai.model.Vendors SET isActive=false WHERE id=?1")
+	public void disableVendor(int id);
+
 }

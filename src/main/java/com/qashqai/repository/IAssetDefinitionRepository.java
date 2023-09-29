@@ -21,4 +21,9 @@ public interface IAssetDefinitionRepository extends CrudRepository<AssetDefiniti
 				@Query("UPDATE com.qashqai.model.AssetDefinition SET isActive=0 WHERE id=?1")
 				public void deactivateAssetDefinition(int id);
 
+				@Modifying
+				@Query("UPDATE com.qashqai.model.AssetDefinition SET adName=?2,assetId=?3,adClass=?4"
+						+ " WHERE assetId=?1")
+				public void  updateAssetDefinition(int id,String adName,int assetId,String adClass);
+
 }

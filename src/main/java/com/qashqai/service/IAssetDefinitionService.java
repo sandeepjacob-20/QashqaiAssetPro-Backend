@@ -17,6 +17,9 @@ public interface IAssetDefinitionService {
 		//deactivate
 		public void deactivateAssetDefinition(int id);
 		
+		//update
+		public void updateAssetDefinition(int id,String adName,int assetId,String adClass);
+		
 		//search by id
 		public List<AssetDefinition> getAssetDefinitionById(int id);
 
