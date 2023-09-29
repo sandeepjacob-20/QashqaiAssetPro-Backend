@@ -33,7 +33,7 @@ public class AssetMasterController {
 		return assetMasterService.getAll();
 	}
 	
-	@PostMapping("/addasset")
+	@PostMapping("/addassets")
 	public ResponseEntity<APIResponse> addAssetMaster(@RequestBody AssetMaster asset){
 		if(assetMasterService.addAsset(asset)==null) {
 			apiResponse.setData("Error adding asset");
