@@ -14,20 +14,16 @@ public class Asset {
 	@Column(name="assetId")
 	private Integer assetId;
 	
+	
 	@Column(name="assetType", nullable=false, length=60)
 	private String assetType;
-
+	
+	@Column(name="isTaken")
+	private boolean isTaken = true;
+	
 	public Asset() {
 		
 	}
-
-	public Asset(Integer assetId, String assetType) {
-		super();
-		this.assetId = assetId;
-		this.assetType = assetType;
-	}
-
-	
 	
 	public Integer getAssetId() {
 		return assetId;
@@ -37,6 +33,14 @@ public class Asset {
 		this.assetId = assetId;
 	}
 
+	
+	public boolean getIsTaken() {
+		return isTaken;
+	}
+
+	public void setIsTaken(boolean isTaken) {
+		this.isTaken = isTaken;
+	}
 	public String getAssetType() {
 		return assetType;
 	}
@@ -50,7 +54,4 @@ public class Asset {
 		return "Asset [assetId=" + assetId + ", assetType=" + assetType + "]";
 	}
 
-	
-	
-	
 }

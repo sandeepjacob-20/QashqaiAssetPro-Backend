@@ -2,10 +2,12 @@ package com.qashqai.service;
 
 import java.util.List;
 
-import com.qashqai.model.Vendor;
+import com.qashqai.model.Vendors;
 
 
 public interface IVendorService {
 	//list
-		public List<Vendor>getVendor();
+		public List<Vendors>getVendor();
+		//insert
+		public Vendors saveVendor(Vendors employee);
 }
