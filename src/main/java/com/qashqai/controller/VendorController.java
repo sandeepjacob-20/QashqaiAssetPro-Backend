@@ -53,7 +53,7 @@ public class VendorController {
 	//edit vendor
 	@PutMapping("/vendors")
 	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor){
-		System.out.println(vendor);
+		System.out.println(vendor);	
 		vendorService.saveVendor(vendor);
 			
 		apiResponse.setData("VENDOR UPDATED SUCCESFULLY");
@@ -71,8 +71,7 @@ public class VendorController {
 	}
 	
 	//disable vendor
-	public ResponseEntity<APIResponse>  disableVendor(int id) {
-
+	public ResponseEntity<APIResponse>  disableVendor(int id) {	
 		vendorService.disableVendor(id);
 		apiResponse.setData("VENDOR ADDED SUCCESFULLY");
 		apiResponse.setStatus(200);
