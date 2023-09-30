@@ -21,68 +21,58 @@ import com.qashqai.common.APIResponse;
 import com.qashqai.model.Vendors;
 import com.qashqai.service.IVendorService;
 
-
-
 @CrossOrigin
 @RestController // @Controller+@Configuration
 @RequestMapping("/api")
 public class VendorController {
 	@Autowired
 	private IVendorService vendorService;
-	@Autowired	
+	@Autowired
 	private APIResponse apiResponse;
-	
-	//list vendors
+
+	// list vendors
 	@GetMapping("/vendors")
 	public List<Vendors> getEmployee() {
 		return vendorService.getVendor();
 	}
-	
-	//add vendors
+
+	// add vendors
 	@PostMapping("/vendors")
-	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendors vendor){
+	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendors vendor) {
 		vendorService.saveVendor(vendor);
-		
+
 		apiResponse.setData("VENDOR ADDED SUCCESFULLY");
 		apiResponse.setStatus(200);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-	
-		
-		
+
 	}
-	//edit vendor
+
+	// edit vendor
 	@PutMapping("/vendors")
-	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor){
-		System.out.println(vendor);	
+	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor) {
+		System.out.println(vendor);
 		vendorService.saveVendor(vendor);
-			
+
 		apiResponse.setData("VENDOR UPDATED SUCCESFULLY");
 		apiResponse.setStatus(200);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-	
-		
-		
+
 	}
-	
-	//search vendors
+
+	// search vendors
 	@GetMapping("/vendors/{id}")
 	public Vendors getVendor(@PathVariable int id) {
 		return vendorService.getVendor(id);
 	}
-	
-	//disable vendor
+
+	// disable vendor
 	@GetMapping("/vendors/disable/{id}")
-	public ResponseEntity<APIResponse>  disableVendor(@PathVariable int id) {	
+	public ResponseEntity<APIResponse> disableVendor(@PathVariable int id) {
 		vendorService.disableVendor(id);
 		apiResponse.setData("VENDOR DISABLED SUCCESFULLY");
 		apiResponse.setStatus(200);
 		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
-	
-
 
 	}
-	
-	
-	
-	
+
 }
