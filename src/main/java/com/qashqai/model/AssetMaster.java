@@ -22,7 +22,7 @@ public class AssetMaster {
 	private Integer amId;
 
 	// mapping
-	private Integer amTypeId;
+	private Integer assetId;
 
 	@OneToOne
 	@JoinColumn(name = "assetId", insertable = false, updatable = false)
@@ -81,13 +81,13 @@ public class AssetMaster {
 	}
 
 
-	public Integer getAmTypeId() {
-		return amTypeId;
+	public Integer getAssetId() {
+		return assetId;
 	}
 
 
-	public void setAmTypeId(Integer amTypeId) {
-		this.amTypeId = amTypeId;
+	public void setAmTypeId(Integer assetId) {
+		this.assetId = assetId;
 	}
 
 
