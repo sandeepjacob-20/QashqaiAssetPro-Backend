@@ -57,7 +57,7 @@ public class AssetDefinitionController {
 
 	// deactivate
 	// to deactivate isActive
-	@GetMapping("/assetdefinition/deactivate/{id}")
+	@GetMapping("/assetdefinition/delete/{id}")
 	public void deactivateAssetDefintion(@PathVariable int id) {
 		assetDefinitionService.deactivateAssetDefinition(id);
 	}
