@@ -48,11 +48,11 @@ public class Vendors {
     @Column(name = "isActive")
     private boolean isActive = true;
 
-    @Column(name = "dteCreatedAt")
-    private LocalDate dteCreatedAt;
-
-    @Column(name = "dteModifiedAt")
-    private LocalDate dteModifiedAt;
+//    @Column(name = "dteCreatedAt")
+//    private LocalDate dteCreatedAt;
+//
+//    @Column(name = "dteModifiedAt")
+//    private LocalDate dteModifiedAt;
 
 	public Vendors() {
 	}
@@ -129,21 +129,21 @@ public class Vendors {
 		this.isActive = isActive;
 	}
 
-	public LocalDate getDteCreatedAt() {
-		return dteCreatedAt;
-	}
-
-	public void setDteCreatedAt(LocalDate dteCreatedAt) {
-		this.dteCreatedAt = dteCreatedAt;
-	}
-
-	public LocalDate getDteModifiedAt() {
-		return dteModifiedAt;
-	}
-
-	public void setDteModifiedAt(LocalDate dteModifiedAt) {
-		this.dteModifiedAt = dteModifiedAt;
-	}
+//	public LocalDate getDteCreatedAt() {
+//		return dteCreatedAt;
+//	}
+//
+//	public void setDteCreatedAt(LocalDate dteCreatedAt) {
+//		this.dteCreatedAt = dteCreatedAt;
+//	}
+//
+//	public LocalDate getDteModifiedAt() {
+//		return dteModifiedAt;
+//	}
+//
+//	public void setDteModifiedAt(LocalDate dteModifiedAt) {
+//		this.dteModifiedAt = dteModifiedAt;
+//	}
     
 	
     
