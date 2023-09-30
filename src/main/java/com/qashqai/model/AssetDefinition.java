@@ -27,11 +27,17 @@ public class AssetDefinition {
 	private String adClass;
 
 	// mapping
-	private Integer assetId;
+	private Integer assetClassId;
 
 	@ManyToOne
-	@JoinColumn(name = "assetId", insertable = false, updatable = false)
-	private Asset assetTypes;
+	@JoinColumn(name = "assetClassId", insertable = false, updatable = false)
+	private Asset assetClass;
+	
+	// mapping
+		private Integer assetId;
+@ManyToOne
+		@JoinColumn(name = "assetId", insertable = false, updatable = false)
+		private Asset assetTypes;
 
 	
 	//isActive

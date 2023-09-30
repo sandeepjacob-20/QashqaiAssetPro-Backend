@@ -12,7 +12,7 @@ public interface IAssetDefinitionRepository extends CrudRepository<AssetDefiniti
 
 	// search by id
 	// create custom method using JPQL query
-	@Query("from AssetDefinition WHERE adId like %?1%")
+	@Query("from AssetDefinition WHERE adId like ?1")
 	public List<AssetDefinition> findById(int id);
 
 	// to deactivate employees
