@@ -28,13 +28,15 @@ public class AssetMasterService implements IAssetMasterService {
 		// TODO Auto-generated method stub
 		return assetMasterRepo.save(asset);
 	}
-
+	
+	//search by id
 	@Override
 	public Optional<AssetMaster> searchAsset(int assetmasterid) {
 		// TODO Auto-generated method stub
 		return assetMasterRepo.findById(assetmasterid);
 	}
-
+	
+	//to delete items
 	@Transactional
 	@Override
 	public void disableAssets(int assetmasterid) {
