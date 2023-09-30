@@ -29,7 +29,7 @@ public class Vendors {
     private String vendorType;
     
     //mapping
-    private Integer assetType;
+    private Integer assetId;
     
     @ManyToOne
     @JoinColumn
@@ -48,11 +48,11 @@ public class Vendors {
     @Column(name = "isActive")
     private boolean isActive = true;
 
-    @Column(name = "dteCreatedAt")
-    private LocalDate dteCreatedAt;
-
-    @Column(name = "dteModifiedAt")
-    private LocalDate dteModifiedAt;
+//    @Column(name = "dteCreatedAt")
+//    private LocalDate dteCreatedAt;
+//
+//    @Column(name = "dteModifiedAt")
+//    private LocalDate dteModifiedAt;
 
 	public Vendors() {
 	}
@@ -81,12 +81,14 @@ public class Vendors {
 		this.vendorType = vendorType;
 	}
 
-	public Integer getAssetType() {
-		return assetType;
+	
+
+	public Integer getAssetId() {
+		return assetId;
 	}
 
-	public void setAssetType(Integer assetType) {
-		this.assetType = assetType;
+	public void setAssetId(Integer assetId) {
+		this.assetId = assetId;
 	}
 
 	public Asset getAssets() {
@@ -129,21 +131,21 @@ public class Vendors {
 		this.isActive = isActive;
 	}
 
-	public LocalDate getDteCreatedAt() {
-		return dteCreatedAt;
-	}
-
-	public void setDteCreatedAt(LocalDate dteCreatedAt) {
-		this.dteCreatedAt = dteCreatedAt;
-	}
-
-	public LocalDate getDteModifiedAt() {
-		return dteModifiedAt;
-	}
-
-	public void setDteModifiedAt(LocalDate dteModifiedAt) {
-		this.dteModifiedAt = dteModifiedAt;
-	}
+//	public LocalDate getDteCreatedAt() {
+//		return dteCreatedAt;
+//	}
+//
+//	public void setDteCreatedAt(LocalDate dteCreatedAt) {
+//		this.dteCreatedAt = dteCreatedAt;
+//	}
+//
+//	public LocalDate getDteModifiedAt() {
+//		return dteModifiedAt;
+//	}
+//
+//	public void setDteModifiedAt(LocalDate dteModifiedAt) {
+//		this.dteModifiedAt = dteModifiedAt;
+//	}
     
 	
     

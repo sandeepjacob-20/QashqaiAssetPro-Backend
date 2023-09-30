@@ -19,26 +19,31 @@ public class AssetMaster {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "assetmasterid")
-	private Integer id;
+	private Integer amId;
 
 	// mapping
-	@Column(name="assetMasterType")
-	private Integer vendorId;
+	private Integer assetId;
 
-	@ManyToOne
+	@OneToOne
+	@JoinColumn(name = "assetId", insertable = false, updatable = false)
+	private Asset asset;
+
+	// mapping
+	private Integer vendorId; // for storing the vendor details
+
+	@OneToOne
 	@JoinColumn(name = "vendorId", insertable = false, updatable = false)
-	private Vendors vendor;
+	private Vendors vendors;
 
-	private String assetMake;
-	
-	@Column(name="AssetMasterModel")
 	// mapping
-	private Integer adId; // for storing the model
+	private Integer adId; // for storing the make info
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "adId", insertable = false, updatable = false)
-	private AssetDefinition assetdefinition;
+	private AssetDefinition assetDefinition;
+	
+	@Column(name = "model", nullable = false)
+	private String model;
 
 	@Column(name = "serialNumber", nullable = false)
 	private Integer serialNumber;
@@ -57,141 +62,163 @@ public class AssetMaster {
 
 	@Column(name = "warrantyTo", nullable = false)
 	private Date warrantyTo;
-	
-	@Column(name="isTaken")
+
+	@Column(name = "isTaken")
 	private boolean isTaken = true;
 
-	// record creation date
-	@Column(name = "dateCreated", nullable = true)
-	private LocalDate dateCreated = LocalDate.now();
-
-	// record modification date
-	@Column(name = "dateModified", nullable = true)
-	private LocalDate dateModified = LocalDate.now();
 
 	public AssetMaster() {
 	}
 
-	public Integer getId() {
-		return id;
+
+	public Integer getAmId() {
+		return amId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setAmId(Integer amId) {
+		this.amId = amId;
 	}
+
+
+	public Integer getAssetId() {
+		return assetId;
+	}
+
+
+	public void setAmTypeId(Integer assetId) {
+		this.assetId = assetId;
+	}
+
+
+	public Asset getAsset() {
+		return asset;
+	}
+
+
+	public void setAsset(Asset asset) {
+		this.asset = asset;
+	}
+
 
 	public Integer getVendorId() {
 		return vendorId;
 	}
 
+
 	public void setVendorId(Integer vendorId) {
 		this.vendorId = vendorId;
 	}
 
-	public Vendors getVendor() {
-		return vendor;
+
+	public Vendors getVendors() {
+		return vendors;
 	}
 
-	public void setVendor(Vendors vendor) {
-		this.vendor = vendor;
+
+	public void setVendors(Vendors vendors) {
+		this.vendors = vendors;
 	}
 
-	public String getAssetMake() {
-		return assetMake;
-	}
-
-	public void setAssetMake(String assetMake) {
-		this.assetMake = assetMake;
-	}
 
 	public Integer getAdId() {
 		return adId;
 	}
 
+
 	public void setAdId(Integer adId) {
 		this.adId = adId;
 	}
 
-	public AssetDefinition getAssetdefinition() {
-		return assetdefinition;
+
+	public AssetDefinition getAssetDefinition() {
+		return assetDefinition;
 	}
 
-	public void setAssetdefinition(AssetDefinition assetdefinition) {
-		this.assetdefinition = assetdefinition;
+
+	public void setAssetDefinition(AssetDefinition assetDefinition) {
+		this.assetDefinition = assetDefinition;
 	}
+
+
+	public String getModel() {
+		return model;
+	}
+
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
 
 	public Integer getSerialNumber() {
 		return serialNumber;
 	}
 
+
 	public void setSerialNumber(Integer serialNumber) {
 		this.serialNumber = serialNumber;
 	}
+
 
 	public Date getYearOfManifacture() {
 		return yearOfManifacture;
 	}
 
+
 	public void setYearOfManifacture(Date yearOfManifacture) {
 		this.yearOfManifacture = yearOfManifacture;
 	}
+
 
 	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
 
+
 	public void setPurchaseDate(Date purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
+
 
 	public char getWarranty() {
 		return warranty;
 	}
 
+
 	public void setWarranty(char warranty) {
 		this.warranty = warranty;
 	}
+
 
 	public Date getWarrantyFrom() {
 		return warrantyFrom;
 	}
 
+
 	public void setWarrantyFrom(Date warrantyFrom) {
 		this.warrantyFrom = warrantyFrom;
 	}
+
 
 	public Date getWarrantyTo() {
 		return warrantyTo;
 	}
 
+
 	public void setWarrantyTo(Date warrantyTo) {
 		this.warrantyTo = warrantyTo;
 	}
+
 
 	public boolean isTaken() {
 		return isTaken;
 	}
 
+
 	public void setTaken(boolean isTaken) {
 		this.isTaken = isTaken;
 	}
 
-	public LocalDate getDateCreated() {
-		return dateCreated;
-	}
-
-	public void setDateCreated(LocalDate dateCreated) {
-		this.dateCreated = dateCreated;
-	}
-
-	public LocalDate getDateModified() {
-		return dateModified;
-	}
-
-	public void setDateModified(LocalDate dateModified) {
-		this.dateModified = dateModified;
-	};
 	
-	
-
 }
