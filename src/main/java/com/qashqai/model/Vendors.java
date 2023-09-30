@@ -29,7 +29,7 @@ public class Vendors {
     private String vendorType;
     
     //mapping
-    private Integer assetType;
+    private Integer assetId;
     
     @ManyToOne
     @JoinColumn
@@ -81,12 +81,14 @@ public class Vendors {
 		this.vendorType = vendorType;
 	}
 
-	public Integer getAssetType() {
-		return assetType;
+	
+
+	public Integer getAssetId() {
+		return assetId;
 	}
 
-	public void setAssetType(Integer assetType) {
-		this.assetType = assetType;
+	public void setAssetId(Integer assetId) {
+		this.assetId = assetId;
 	}
 
 	public Asset getAssets() {
