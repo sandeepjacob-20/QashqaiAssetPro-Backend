@@ -10,6 +10,6 @@ import com.qashqai.model.AssetMaster;
 @Repository
 public interface IAssetMasterRepository extends CrudRepository<AssetMaster, Integer>{
 	@Modifying
-	@Query("UPDATE com.qashqai.model.AssetMaster SET is_taken = 0 WHERE assetmasterid=?1")
-	public void disableAssets(int assetmasterid);
+	@Query("UPDATE com.qashqai.model.AssetMaster SET is_taken = 0 WHERE amId=?1")
+	public void disableAssets(int amId);
 }
