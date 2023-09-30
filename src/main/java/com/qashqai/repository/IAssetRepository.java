@@ -14,7 +14,8 @@ public interface IAssetRepository extends CrudRepository<Asset, Integer> {
 
 	// search by id
 	// create custom method using JPQL query
-	@Query("from Asset WHERE assetId like %?1%")
+
+	@Query("from Asset WHERE assetId like ?1")
 	public List<Asset> findById(int id);
 
 	// to deactivate employees

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.Asset;
-import com.qashqai.model.AssetDefinition;
 import com.qashqai.service.IAssetService;
 
 @CrossOrigin
@@ -51,8 +50,8 @@ public class AssetController {
 
 	// search by id
 	@GetMapping("/asset/{id}")
-	public Asset getAssetById(@PathVariable int id) {
-		return assetService.getAssetById(id);
+	public List<Asset> getAssetById(@PathVariable int id) {
+		return (List<Asset>) assetService.getAssetById(id);
 	}
 
 	// deactivate

@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.qashqai.model.Asset;
-import com.qashqai.model.AssetDefinition;
-import com.qashqai.model.AssetMaster;
 
 
 public interface IAssetService {
@@ -20,6 +18,6 @@ public interface IAssetService {
 		public void deactivateAsset(int id);
 		
 		//search by id
-		public Asset  getAssetById(int id);
+		public List<Asset> getAssetById(int id);
 
 }
