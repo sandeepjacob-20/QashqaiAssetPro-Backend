@@ -65,7 +65,7 @@ public class UserService implements IUserService {
 		}
 		
 		//credentials are correct then
-		String token = jwtutil.generateJwtCustomer(user);
+		String token = jwtutil.generateJwtUser(user);
 		
 		//storing more details and tokens
 		Map<String, Object> data = new HashMap<String,Object>();

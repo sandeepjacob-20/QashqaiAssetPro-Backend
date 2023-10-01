@@ -15,7 +15,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtUtil {
 	// secret key for TOKEN
 		private static String secretAdmin = "THIS_IS_ADMIN";
-		private static String secretCustomer = "THIS_IS_CUSTOMER";
+		private static String secretUser = "THIS_IS_USER";
 
 		// expiration time
 		private static long expiryDurationn = 60 * 60;
@@ -37,7 +37,7 @@ public class JwtUtil {
 		}
 
 		// generate token for Customer: header.payload.signature
-		public String generateJwtCustomer(Users user) {
+		public String generateJwtUser(Users user) {
 			long milliTime = System.currentTimeMillis();
 			long expiryTime = milliTime + expiryDurationn * 1000;
 
@@ -49,7 +49,7 @@ public class JwtUtil {
 			Claims claim = Jwts.claims().setIssuer(user.getUserId().toString()).setIssuedAt(issuedAt)
 					.setExpiration(expiryAt);
 			// generate JWT token using claims
-			return Jwts.builder().setClaims(claim).signWith(SignatureAlgorithm.HS512, secretCustomer).compact();
+			return Jwts.builder().setClaims(claim).signWith(SignatureAlgorithm.HS512, secretUser).compact();
 		}
 
 		// checking token is valid or not for admin
@@ -63,9 +63,9 @@ public class JwtUtil {
 		}
 		
 		// checking token is valid or not for customer
-			public Claims verifyCustomer(String authorization) throws AccessDeniedException {
+			public Claims verifyUser(String authorization) throws AccessDeniedException {
 				try {
-					Claims claim = Jwts.parser().setSigningKey(secretCustomer).parseClaimsJws(authorization).getBody();
+					Claims claim = Jwts.parser().setSigningKey(secretUser).parseClaimsJws(authorization).getBody();
 					return claim;
 				} catch (Exception e) {
 					throw new AccessDeniedException("Sorry! ACCESS DENIED!!");
