@@ -29,9 +29,9 @@ public class UserService implements IUserService {
 	
 	
 	@Override
-	public APIResponse findAdminByNameAndPassword(String userName, String password) {
+	public APIResponse loginByNameAndPassword(String userName, String password) {
 		//verify user exist or not
-		Users user = userRepository.findAdminByUserNameAndPassword(userName, password);
+		Users user = userRepository.loginByUserNameAndPassword(userName, password);
 		
 		if(user==null) {
 			apiResponse.setData("INVALID CREDENTIALS");
@@ -39,7 +39,7 @@ public class UserService implements IUserService {
 		}
 		
 		//credentials are correct then
-		String token = jwtutil.generateJwtAdmin(user);
+		String token = jwtutil.generateJwt(user);
 		
 		//storing more details and tokens
 		Map<String, Object> data = new HashMap<String,Object>();
@@ -54,32 +54,7 @@ public class UserService implements IUserService {
 		
 	}
 	
-	@Override
-	public APIResponse findUserByNameAndPassword(String userName, String password) {
-		//verify user exist or not
-		Users user = userRepository.findUserByUserNameAndPassword(userName, password);
-		
-		if(user==null) {
-			apiResponse.setData("INVALID CREDENTIALS");
-			return apiResponse;
-		}
-		
-		//credentials are correct then
-		String token = jwtutil.generateJwtUser(user);
-		
-		//storing more details and tokens
-		Map<String, Object> data = new HashMap<String,Object>();
-		data.put("ACCESS TOKEN", token);
-		data.put("role", user.getRoleId());
-		data.put("UserName",user.getUserName());
-		
-		apiResponse.setStatus(200);
-		apiResponse.setData(data);
-		
-		return apiResponse;
-		
-	}
- 
+
 	//save users
 	@Override
 	public Users saveUser(Users user) {

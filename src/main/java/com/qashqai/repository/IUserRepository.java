@@ -10,10 +10,6 @@ import com.qashqai.model.Users;
 public interface IUserRepository extends CrudRepository<Users, Integer> {
 
 	// custom method
-	@Query("from Users WHERE userName=?1 AND password=?2 AND role_id=1")
-	public Users findAdminByUserNameAndPassword(String userName, String password);
-
-	// custom method
-	@Query("from Users WHERE userName=?1 AND password=?2 AND role_id=2")
-	public Users findUserByUserNameAndPassword(String userName, String password);
+	@Query("from Users WHERE userName=?1 AND password=?2")
+	public Users loginByUserNameAndPassword(String userName, String password);
 }

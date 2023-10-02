@@ -41,22 +41,11 @@ public class UserController {
 			.status(apiResponse.getStatus()).body(apiResponse);
 	}
 	
-	//for admin
-	@GetMapping("/adminlogin/{userName}&{password}")
-	public ResponseEntity<APIResponse> findAdminByNameAndPassword
+	//for login
+	@GetMapping("/login/{userName}&{password}")
+	public ResponseEntity<APIResponse> loginByNameAndPassword
 	(@PathVariable String userName, @PathVariable String password){
-		APIResponse apiresponse = userService.findAdminByNameAndPassword(userName, password);
-		
-		return ResponseEntity.status(apiresponse.getStatus())
-				.body(apiresponse);
-	}
-	
-	//for Customer
-	@GetMapping("/userlogin/{userName}&{password}")
-	public ResponseEntity<APIResponse> findUserByNameAndPassword
-	(@PathVariable String userName, @PathVariable String password){
-		System.out.println(	userName );
-		APIResponse apiresponse = userService.findUserByNameAndPassword(userName, password);
+		APIResponse apiresponse = userService.loginByNameAndPassword(userName, password);
 		
 		return ResponseEntity.status(apiresponse.getStatus())
 				.body(apiresponse);
