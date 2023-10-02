@@ -12,31 +12,31 @@ import com.qashqai.repository.IAssetMasterRepository;
 
 @Service
 public class AssetMasterService implements IAssetMasterService {
-	
+
 	@Autowired
 	private IAssetMasterRepository assetMasterRepo;
-	
-	//list all assets
+
+	// list all assets
 	@Override
 	public List<AssetMaster> getAll() {
 		return (List<AssetMaster>) assetMasterRepo.findAll();
 	}
 
-	//insert new asset
+	// insert new asset
 	@Override
 	public AssetMaster addAsset(AssetMaster asset) {
 		// TODO Auto-generated method stub
 		return assetMasterRepo.save(asset);
 	}
-	
-	//search by id
+
+	// search by id
 	@Override
 	public Optional<AssetMaster> searchAsset(int assetmasterid) {
 		// TODO Auto-generated method stub
 		return assetMasterRepo.findById(assetmasterid);
 	}
-	
-	//to delete items
+
+	// to delete items
 	@Transactional
 	@Override
 	public void disableAssets(int assetmasterid) {
