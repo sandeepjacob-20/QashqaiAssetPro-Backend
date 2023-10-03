@@ -31,7 +31,7 @@ public class AssetDefinition {
 
 	@ManyToOne
 	@JoinColumn(name = "assetClassId", insertable = false, updatable = false)
-	private Asset assetClass;
+	private AssetClass assetClass;
 
 	// mapping
 	private Integer assetId;

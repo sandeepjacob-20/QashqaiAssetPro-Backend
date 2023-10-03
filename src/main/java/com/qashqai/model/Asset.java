@@ -20,7 +20,7 @@ public class Asset {
 	
 	//isActive
 	@Column(name="isActive")
-	private boolean isActive;
+	private boolean isActive=true;
 	
 	
 	//default Constructor
