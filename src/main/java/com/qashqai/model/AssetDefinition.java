@@ -31,7 +31,7 @@ public class AssetDefinition {
 
 	@ManyToOne
 	@JoinColumn(name = "assetClassId", insertable = false, updatable = false)
-	private Asset assetClass;
+	private AssetClass assetClass;
 
 	// mapping
 	private Integer assetId;
@@ -73,11 +73,11 @@ public class AssetDefinition {
 		this.assetClassId = assetClassId;
 	}
 
-	public Asset getAssetClass() {
+	public AssetClass getAssetClass() {
 		return assetClass;
 	}
 
-	public void setAssetClass(Asset assetClass) {
+	public void setAssetClass(AssetClass assetClass) {
 		this.assetClass = assetClass;
 	}
 
