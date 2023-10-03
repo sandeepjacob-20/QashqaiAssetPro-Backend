@@ -35,5 +35,11 @@ public class PurchaseServiceImple implements IPurchaseService {
 		return  purchaseRepo.findById(pdId).orElseThrow(()-> new
 				RuntimeException("purchase order not found for id"+pdId));
 	}
+
+	@Override
+	public List<PurchaseOrder> listByStatus(int statusId) {
+		// TODO Auto-generated method stub
+		return purchaseRepo.listByStatus(statusId);
+	}
 	
 }

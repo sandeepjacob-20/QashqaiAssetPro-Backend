@@ -16,6 +16,8 @@ public interface IPurchaseService {
 
 //search by id
 	public PurchaseOrder getOrderById(int pdId);
+//list by statusid
+	public List<PurchaseOrder> listByStatus(int statusId);
 
 
 }

@@ -67,5 +67,10 @@ public class PurchaseOrderController {
 	public PurchaseOrder getOrder(@PathVariable int pdId) {
 		return purchaseService.getOrderById(pdId);
 	}
+	// list by statusId
+		@GetMapping("/orders/listbystatus/{statusId}")
+		public List<PurchaseOrder> getOrderByStatus(@PathVariable int statusId) {
+			return purchaseService.listByStatus(statusId);
+		}
 
 }
