@@ -44,7 +44,7 @@ public class PurchaseOrderController {
 			return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
 
 		}
-		apiresponse.setData("employee added successfuly");
+		apiresponse.setData("order added successfuly");
 		apiresponse.setStatus(200);
 		return ResponseEntity.status(apiresponse.getStatus()).body(apiresponse);
 
@@ -67,10 +67,11 @@ public class PurchaseOrderController {
 	public PurchaseOrder getOrder(@PathVariable int pdId) {
 		return purchaseService.getOrderById(pdId);
 	}
+
 	// list by statusId
-		@GetMapping("/orders/listbystatus/{statusId}")
-		public List<PurchaseOrder> getOrderByStatus(@PathVariable int statusId) {
-			return purchaseService.listByStatus(statusId);
-		}
+	@GetMapping("/orders/list")
+	public List<PurchaseOrder> getOrderByStatus() {
+		return purchaseService.listByStatus();
+	}
 
 }

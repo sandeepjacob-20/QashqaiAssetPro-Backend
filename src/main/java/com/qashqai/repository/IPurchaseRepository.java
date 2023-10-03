@@ -18,7 +18,7 @@ public interface IPurchaseRepository extends CrudRepository<PurchaseOrder, Integ
 	@Query("UPDATE com.qashqai.model.PurchaseOrder SET isActive=0 WHERE pdId=?1")
 	public void deleteOrder(int pdId);
 
-	@Query("from com.qashqai.model.PurchaseOrder where statusId=4 ")
-	public List<PurchaseOrder> listByStatus(int statusId);
+	@Query("from com.qashqai.model.PurchaseOrder where statusId=4")
+	public List<PurchaseOrder> listByStatus();
 	
 }

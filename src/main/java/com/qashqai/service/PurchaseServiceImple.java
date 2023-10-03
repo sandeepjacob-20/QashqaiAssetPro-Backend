@@ -37,9 +37,9 @@ public class PurchaseServiceImple implements IPurchaseService {
 	}
 
 	@Override
-	public List<PurchaseOrder> listByStatus(int statusId) {
+	public List<PurchaseOrder> listByStatus() {
 		// TODO Auto-generated method stub
-		return purchaseRepo.listByStatus(statusId);
+		return purchaseRepo.listByStatus();
 	}
 	
 }
