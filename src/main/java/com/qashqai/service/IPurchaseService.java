@@ -14,10 +14,10 @@ public interface IPurchaseService {
 	// delete
 	public PurchaseOrder deleteOrder(int pdId);
 
-//search by id
+	//search by id
 	public PurchaseOrder getOrderById(int pdId);
 
-//list by statusid
+	//list by statusid
 	public List<PurchaseOrder> listByStatus();
 
 }
