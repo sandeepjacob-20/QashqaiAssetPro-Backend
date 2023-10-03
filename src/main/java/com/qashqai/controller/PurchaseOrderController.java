@@ -69,7 +69,7 @@ public class PurchaseOrderController {
 	}
 
 	// list by statusId
-	@GetMapping("/orders/list")
+	@GetMapping("/orders/listbystatus")
 	public List<PurchaseOrder> getOrderByStatus() {
 		return purchaseService.listByStatus();
 	}
