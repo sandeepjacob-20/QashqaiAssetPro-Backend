@@ -22,9 +22,9 @@ public class AssetDefinition {
 	@Column(name = "adName", nullable = false, length = 60)
 	private String adName;
 
-	// asset class
-	// @Column(name = "adClass", nullable = false, length = 60)
-	// private String adClass;
+//	 //asset class
+//	 @Column(name = "adClass", nullable = false, length = 60)
+//	 private String adClass;
 
 	// mapping
 	private Integer assetClassId;
@@ -63,13 +63,23 @@ public class AssetDefinition {
 		this.adName = adName;
 	}
 
-	/*public String getAdClass() {
-		return adClass;
+
+
+	public Integer getAssetClassId() {
+		return assetClassId;
 	}
 
-	public void setAdClass(String adClass) {
-		this.adClass = adClass;
-	}*/
+	public void setAssetClassId(Integer assetClassId) {
+		this.assetClassId = assetClassId;
+	}
+
+	public Asset getAssetClass() {
+		return assetClass;
+	}
+
+	public void setAssetClass(Asset assetClass) {
+		this.assetClass = assetClass;
+	}
 
 	public Integer getAssetId() {
 		return assetId;
