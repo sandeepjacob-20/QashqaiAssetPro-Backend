@@ -2,6 +2,7 @@ package com.qashqai.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.qashqai.common.APIResponse;
 import com.qashqai.model.Users;
 import com.qashqai.service.IUserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -39,22 +41,11 @@ public class UserController {
 			.status(apiResponse.getStatus()).body(apiResponse);
 	}
 	
-	//for admin
-	@GetMapping("/adminlogin/{userName}&{password}")
-	public ResponseEntity<APIResponse> findAdminByNameAndPassword
+	//for login
+	@GetMapping("/login/{userName}&{password}")
+	public ResponseEntity<APIResponse> loginByNameAndPassword
 	(@PathVariable String userName, @PathVariable String password){
-		APIResponse apiresponse = userService.findAdminByNameAndPassword(userName, password);
-		
-		return ResponseEntity.status(apiresponse.getStatus())
-				.body(apiresponse);
-	}
-	
-	//for Customer
-	@GetMapping("/userlogin/{userName}&{password}")
-	public ResponseEntity<APIResponse> findUserByNameAndPassword
-	(@PathVariable String userName, @PathVariable String password){
-		System.out.println(	userName );
-		APIResponse apiresponse = userService.findUserByNameAndPassword(userName, password);
+		APIResponse apiresponse = userService.loginByNameAndPassword(userName, password);
 		
 		return ResponseEntity.status(apiresponse.getStatus())
 				.body(apiresponse);
