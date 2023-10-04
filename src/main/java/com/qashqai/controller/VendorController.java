@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.Vendors;
 import com.qashqai.service.IVendorService;
+import com.qashqai.util.JwtUtil;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
@@ -29,16 +30,23 @@ public class VendorController {
 	private IVendorService vendorService;
 	@Autowired
 	private APIResponse apiResponse;
-
+	@Autowired
+	private JwtUtil jwtutil;
 	// list vendors
 	@GetMapping("/vendors")
-	public List<Vendors> getEmployee() {
+	public List<Vendors> getEmployee(@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return vendorService.getActiveVendor();
 	}
 
 	// add vendors
 	@PostMapping("/vendors")
-	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendors vendor) {
+	public ResponseEntity<APIResponse> addVendor(@RequestBody Vendors vendor,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		vendorService.saveVendor(vendor);
 
 		apiResponse.setData("VENDOR ADDED SUCCESFULLY");
@@ -49,7 +57,10 @@ public class VendorController {
 
 	// edit vendor
 	@PutMapping("/vendors")
-	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor) {
+	public ResponseEntity<APIResponse> updateVendor(@RequestBody Vendors vendor,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		System.out.println(vendor);
 		vendorService.saveVendor(vendor);
 
@@ -61,13 +72,19 @@ public class VendorController {
 
 	// search vendors
 	@GetMapping("/vendors/{id}")
-	public Vendors getVendor(@PathVariable int id) {
+	public Vendors getVendor(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return vendorService.getVendor(id);
 	}
 
 	// disable vendor
 	@GetMapping("/vendors/disable/{id}")
-	public ResponseEntity<APIResponse> disableVendor(@PathVariable int id) {
+	public ResponseEntity<APIResponse> disableVendor(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		vendorService.disableVendor(id);
 		apiResponse.setData("VENDOR DISABLED SUCCESFULLY");
 		apiResponse.setStatus(200);

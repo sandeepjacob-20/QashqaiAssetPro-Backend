@@ -1,5 +1,6 @@
 package com.qashqai.controller;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.AssetDefinition;
 import com.qashqai.service.IAssetDefinitionService;
+import com.qashqai.util.JwtUtil;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
@@ -26,15 +29,22 @@ public class AssetDefinitionController {
 
 	@Autowired
 	private APIResponse apiResponse;
-
+	@Autowired
+	private JwtUtil jwtutil;
 	// list
 	@GetMapping("/assetdefinition")
-	public List<AssetDefinition> getAssetDefinition() {
+	public List<AssetDefinition> getAssetDefinition(@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return assetDefinitionService.getActiveAssetDefinition();
 	}
 
 	@PostMapping("/assetdefinition")
-	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody AssetDefinition assetDefinition) {
+	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody AssetDefinition assetDefinition,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		if (assetDefinitionService.saveAssetDefinition(assetDefinition) == null) {
 			apiResponse.setData("Name can have only alphabets!!");
 			apiResponse.setStatus(500);
@@ -51,21 +61,31 @@ public class AssetDefinitionController {
 
 	// search by id
 	@GetMapping("/assetdefinition/{id}")
-	public  List<AssetDefinition> getAssetDefinitionById(@PathVariable int id) {
+	public  List<AssetDefinition> getAssetDefinitionById(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return (List<AssetDefinition>) assetDefinitionService.getAssetDefinitionById(id);
 	}
 
 	// deactivate
 	// to deactivate isActive
 	@GetMapping("/assetdefinition/delete/{id}")
-	public void deactivateAssetDefintion(@PathVariable int id) {
+	public void deactivateAssetDefintion(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		assetDefinitionService.deactivateAssetDefinition(id);
 	}
 	
 	//update
 	
 	@PutMapping("/assetDefinition/update/{id}&&{assetType}")
-	public ResponseEntity<APIResponse> updateAssetDefinition(@PathVariable int id,@PathVariable String assetName,@PathVariable int assetTypeId,@PathVariable String assetClass  ) {
+	public ResponseEntity<APIResponse> updateAssetDefinition(@PathVariable int id,@PathVariable String assetName,
+			@PathVariable int assetTypeId,@PathVariable String assetClass,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		assetDefinitionService.updateAssetDefinition(id, assetName, assetTypeId, assetClass);
 		apiResponse.setData("Asset type updated successfully");
 		apiResponse.setStatus(200);

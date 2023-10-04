@@ -1,5 +1,6 @@
 package com.qashqai.controller;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qashqai.common.APIResponse;
 import com.qashqai.model.Asset;
 import com.qashqai.service.IAssetService;
+import com.qashqai.util.JwtUtil;
 
 @CrossOrigin
 @RestController // @Controller+@Configuration
@@ -25,15 +28,22 @@ public class AssetController {
 
 	@Autowired
 	private APIResponse apiResponse;
-
+	@Autowired
+	private JwtUtil jwtutil;
 	// list
 	@GetMapping("/asset")
-	public List<Asset> getAsset() {
+	public List<Asset> getAsset(@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return assetService.getActiveAsset();
 	}
 
 	@PostMapping("/asset")
-	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody Asset asset) {
+	public ResponseEntity<APIResponse> addAssetDefinition(@RequestBody Asset asset,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		if (assetService.saveAsset(asset) == null) {
 			apiResponse.setData("Name can have only alphabets!!");
 			apiResponse.setStatus(500);
@@ -50,14 +60,20 @@ public class AssetController {
 
 	// search by id
 	@GetMapping("/asset/{id}")
-	public List<Asset> getAssetById(@PathVariable int id) {
+	public List<Asset> getAssetById(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		return (List<Asset>) assetService.getAssetById(id);
 	}
 
 	// deactivate
 	// to deactivate isActive
 	@GetMapping("/asset/deactivate/{id}")
-	public void deactivate(@PathVariable int id) {
+	public void deactivate(@PathVariable int id,@RequestHeader(value = "authorization", defaultValue = "") String auth)
+			throws AccessDeniedException
+			{ //get value passed bu postman
+		jwtutil.verifyAdmin(auth);
 		assetService.deactivateAsset(id);
 	}
 }

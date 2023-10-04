@@ -53,7 +53,7 @@ public class JwtUtil {
 //		}
 
 		// checking token is valid or not for admin
-		public Claims verifyAdmin(String authorization) throws AccessDeniedException {
+		public  Claims verifyAdmin(String authorization) throws AccessDeniedException {
 			try {
 				Claims claim = Jwts.parser().setSigningKey(secretAdmin).parseClaimsJws(authorization).getBody();
 				return claim;
