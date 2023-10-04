@@ -15,7 +15,7 @@ import com.qashqai.model.PurchaseOrder;
 public interface IPurchaseRepository extends CrudRepository<PurchaseOrder, Integer> {
 	
 	@Modifying
-	@Query("UPDATE com.qashqai.model.PurchaseOrder SET isActive=0 WHERE pdId=?1")
+	@Query("UPDATE com.qashqai.model.PurchaseOrder SET isActive=false WHERE pdId=?1")
 	public void deleteOrder(int pdId);
 
 	@Query("from com.qashqai.model.PurchaseOrder where statusId=4")

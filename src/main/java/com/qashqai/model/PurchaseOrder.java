@@ -36,12 +36,6 @@ public class PurchaseOrder {
 	
 	
 	
-	public LocalDate getPdDDate() {
-		return pdDDate;
-	}
-	public void setPdDDate(LocalDate pdDDate) {
-		this.pdDDate = pdDDate;
-	}
 	private boolean isTaken=true;
 	private boolean isActive=true;
 	
@@ -67,6 +61,13 @@ public class PurchaseOrder {
 	private PurchaseStatus purchaseStatus;
 	
 	public PurchaseOrder() {
+	}
+
+	public LocalDate getPdDDate() {
+		return pdDDate;
+	}
+	public void setPdDDate(LocalDate pdDDate) {
+		this.pdDDate = pdDDate;
 	}
 		
 	public Integer getPdId() {

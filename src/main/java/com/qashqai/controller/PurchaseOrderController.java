@@ -57,7 +57,7 @@ public class PurchaseOrderController {
 	}
 
 	// delete ORDER
-	@PutMapping("/orders/delete/{pdId}")
+	@GetMapping("/orders/delete/{pdId}")
 	public void deleteEmployee(@PathVariable int pdId) {
 		purchaseService.deleteOrder(pdId);
 	}
