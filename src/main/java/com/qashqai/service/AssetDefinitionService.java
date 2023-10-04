@@ -48,6 +48,12 @@ public class AssetDefinitionService implements IAssetDefinitionService {
 	public void updateAssetDefinition(int id,String adName,int assetId,String adClass) {
 		assetDefinitionRepo.updateAssetDefinition(id,adName,assetId,adClass);
 	}
+
+	@Override
+	public List<AssetDefinition> getActiveAssetDefinition() {
+		// TODO Auto-generated method stub
+		return (List<AssetDefinition>)assetDefinitionRepo.findAllActiveAssetDefinition();
+	}
 	
 	
 			

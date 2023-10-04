@@ -30,7 +30,7 @@ public class AssetMasterController {
 	
 	@GetMapping("/listassets")
 	public List<AssetMaster> getAssets(){
-		return assetMasterService.getAll();
+		return assetMasterService.getAllActiveEntries();
 	}
 	
 	@PostMapping("/addassets")

@@ -22,6 +22,8 @@ public interface IAssetDefinitionService {
 		
 		//search by id
 		public List<AssetDefinition> getAssetDefinitionById(int id);
+		//list active asset definition
+		public List<AssetDefinition> getActiveAssetDefinition();
 
 	   
 }

@@ -20,4 +20,7 @@ public interface IPurchaseService {
 	//list by statusid
 	public List<PurchaseOrder> listByStatus();
 
+	//list active orders
+	public List<PurchaseOrder> getActiveOrders();
+
 }

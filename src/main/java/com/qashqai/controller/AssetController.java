@@ -29,7 +29,7 @@ public class AssetController {
 	// list
 	@GetMapping("/asset")
 	public List<Asset> getAsset() {
-		return assetService.getAsset();
+		return assetService.getActiveAsset();
 	}
 
 	@PostMapping("/asset")

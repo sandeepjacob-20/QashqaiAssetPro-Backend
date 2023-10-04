@@ -22,5 +22,7 @@ public interface IAssetRepository extends CrudRepository<Asset, Integer> {
 	@Modifying
 	@Query("UPDATE com.qashqai.model.Asset SET isActive=1 WHERE id=?1")
 	public void deactivateAsset(int id);
+	@Query("from com.qashqai.model.Asset where isActive=true")
+	public List<Asset> findAllActiveOrders();
 
 }

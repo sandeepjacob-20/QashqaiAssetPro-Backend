@@ -14,6 +14,8 @@ public interface IVendorService {
 		public Vendors getVendor(int id);
 		//disable
 		public void disableVendor(int id);
+		//list active vendors
+		public List<Vendors> getActiveVendor();
 		
 
 }

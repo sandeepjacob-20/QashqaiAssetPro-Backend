@@ -20,4 +20,7 @@ public interface IAssetService {
 		//search by id
 		public List<Asset> getAssetById(int id);
 
+		//list active asset
+		public List<Asset> getActiveAsset();
+
 }

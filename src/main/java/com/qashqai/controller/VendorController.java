@@ -33,7 +33,7 @@ public class VendorController {
 	// list vendors
 	@GetMapping("/vendors")
 	public List<Vendors> getEmployee() {
-		return vendorService.getVendor();
+		return vendorService.getActiveVendor();
 	}
 
 	// add vendors

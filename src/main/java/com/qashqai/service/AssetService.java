@@ -36,6 +36,12 @@ public class AssetService implements IAssetService {
 	public List<Asset> getAssetById(int id) {
 		return (List<Asset>) assetRepo.findById(id);
 	}
+
+	@Override
+	public List<Asset> getActiveAsset() {
+		// TODO Auto-generated method stub
+		return (List<Asset>) assetRepo.findAllActiveOrders();
+	}
 	
 			
 

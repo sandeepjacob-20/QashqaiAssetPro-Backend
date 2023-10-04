@@ -45,4 +45,10 @@ public class AssetMasterService implements IAssetMasterService {
 
 	}
 
+	@Override
+	public List<AssetMaster> getAllActiveEntries() {
+		// TODO Auto-generated method stub
+		return (List<AssetMaster>) assetMasterRepo.findAllActiveEntries();
+	}
+
 }

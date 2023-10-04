@@ -1,5 +1,7 @@
 package com.qashqai.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -12,4 +14,6 @@ public interface IAssetMasterRepository extends CrudRepository<AssetMaster, Inte
 	@Modifying
 	@Query("UPDATE com.qashqai.model.AssetMaster SET is_taken = 0 WHERE amId=?1")
 	public void disableAssets(int amId);
+	@Query("from com.qashqai.model.AssetMaster where isActive=true")
+	public List<AssetMaster> findAllActiveEntries();
 }

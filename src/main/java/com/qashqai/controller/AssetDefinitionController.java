@@ -30,7 +30,7 @@ public class AssetDefinitionController {
 	// list
 	@GetMapping("/assetdefinition")
 	public List<AssetDefinition> getAssetDefinition() {
-		return assetDefinitionService.getAssetDefinition();
+		return assetDefinitionService.getActiveAssetDefinition();
 	}
 
 	@PostMapping("/assetdefinition")

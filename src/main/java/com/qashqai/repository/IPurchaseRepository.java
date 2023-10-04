@@ -21,4 +21,7 @@ public interface IPurchaseRepository extends CrudRepository<PurchaseOrder, Integ
 	@Query("from com.qashqai.model.PurchaseOrder where statusId=4")
 	public List<PurchaseOrder> listByStatus();
 	
+	@Query("from com.qashqai.model.PurchaseOrder where isActive=true")
+	public List<PurchaseOrder> getActiveVendor();
+	
 }

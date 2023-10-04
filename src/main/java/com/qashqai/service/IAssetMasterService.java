@@ -17,5 +17,8 @@ public interface IAssetMasterService {
 	
 	//deactivate assets
 	public void disableAssets(int assetmasterid);
+
+	//list all active entries
+	public List<AssetMaster> getAllActiveEntries();
 	
 }

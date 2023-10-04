@@ -47,4 +47,11 @@ public class VendorServiceImple implements IVendorService {
 
 	}
 
+	//list active vendors
+	@Override
+	public List<Vendors> getActiveVendor() {
+		// TODO Auto-generated method stub
+		return (List<Vendors>)vendorRepo.getActiveVendor();
+	}
+
 }

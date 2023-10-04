@@ -30,7 +30,7 @@ public class PurchaseOrderController {
 	// add
 	@GetMapping("/orders/get")
 	public List<PurchaseOrder> getOrders() {
-		return purchaseService.getAll();
+		return purchaseService.getActiveOrders();
 	}
 
 	// insert new order

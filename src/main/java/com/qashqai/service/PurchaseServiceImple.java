@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import com.qashqai.model.PurchaseOrder;
+import com.qashqai.model.Vendors;
 import com.qashqai.repository.IPurchaseRepository;
 @Service
 public class PurchaseServiceImple implements IPurchaseService {
@@ -40,6 +41,13 @@ public class PurchaseServiceImple implements IPurchaseService {
 	public List<PurchaseOrder> listByStatus() {
 		// TODO Auto-generated method stub
 		return purchaseRepo.listByStatus();
+	}
+	//list active orders
+
+	@Override
+	public List<PurchaseOrder> getActiveOrders() {
+		// TODO Auto-generated method stub
+		return (List<PurchaseOrder>)purchaseRepo.getActiveVendor();
 	}
 	
 }

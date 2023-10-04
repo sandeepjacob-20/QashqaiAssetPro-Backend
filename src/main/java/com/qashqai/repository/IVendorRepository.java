@@ -1,5 +1,7 @@
 package com.qashqai.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -9,8 +11,12 @@ import com.qashqai.model.Vendors;
 
 @Repository
 public interface IVendorRepository extends CrudRepository<Vendors,Integer>{
+
+
 	@Modifying
 	@Query("UPDATE com.qashqai.model.Vendors SET isActive=false WHERE id=?1")
 	public void disableVendor(int id);
+	@Query("from com.qashqai.model.Vendors where isActive=true")
+	public List<Vendors> getActiveVendor();
 
 }
