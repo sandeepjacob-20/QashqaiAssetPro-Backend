@@ -57,10 +57,10 @@ public class AssetMaster {
 	@Column(name = "warranty", nullable = false)
 	private char warranty;
 
-	@Column(name = "warrantyFrom", nullable = false)
+	@Column(name = "warrantyFrom", nullable = true)
 	private Date warrantyFrom;
 
-	@Column(name = "warrantyTo", nullable = false)
+	@Column(name = "warrantyTo", nullable = true	)
 	private Date warrantyTo;
 
 	@Column(name = "isTaken")

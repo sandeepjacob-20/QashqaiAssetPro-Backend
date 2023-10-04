@@ -14,6 +14,6 @@ public interface IAssetMasterRepository extends CrudRepository<AssetMaster, Inte
 	@Modifying
 	@Query("UPDATE com.qashqai.model.AssetMaster SET is_taken = 0 WHERE amId=?1")
 	public void disableAssets(int amId);
-	@Query("from com.qashqai.model.AssetMaster where isActive=true")
+	@Query("from com.qashqai.model.AssetMaster where isTaken=true")
 	public List<AssetMaster> findAllActiveEntries();
 }
